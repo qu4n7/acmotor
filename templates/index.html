@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>ПРОГНОЗ СТОИОМОСТИ ОБОРУДОВАНИЯ</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <style>
+      h1 {text-align: center;}
+      p {text-align: center;}
+      div {text-align: center;}
+      html, body {
+      display: flex;
+      justify-content: center;
+      height: 100%;
+      }
+      body, div, h1, form, input, p { 
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 16px;
+      color: #666;
+      }
+      h1 {
+      padding: 10px 0;
+      font-size: 32px;
+      font-weight: 300;
+      text-align: center;
+      }
+      p {
+      font-size: 12px;
+      }
+      hr {
+      color: #a9a9a9;
+      opacity: 0.3;
+      }
+      .main-block {
+      max-width: 340px; 
+      min-height: 460px; 
+      padding: 10px 0;
+      margin: auto;
+      border-radius: 5px; 
+      border: solid 1px #ccc;
+      box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+      background: #ebebeb; 
+      }
+      form {
+      margin: 0 30px;
+      }
+      .account-type, .gender {
+      margin: 15px 0;
+      }
+      input[type=radio] {
+      display: none;
+      }
+      label#icon {
+      margin: 0;
+      border-radius: 5px 0 0 5px;
+      }
+      label.radio {
+      position: relative;
+      display: inline-block;
+      padding-top: 4px;
+      margin-right: 20px;
+      text-indent: 30px;
+      overflow: visible;
+      cursor: pointer;
+      }
+      label.radio:before {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #1c87c9;
+      }
+      label.radio:after {
+      content: "";
+      position: absolute;
+      width: 9px;
+      height: 4px;
+      top: 8px;
+      left: 4px;
+      border: 3px solid #fff;
+      border-top: none;
+      border-right: none;
+      transform: rotate(-45deg);
+      opacity: 0;
+      }
+      input[type=radio]:checked + label:after {
+      opacity: 1;
+      }
+      input[type=text], input[type=password] {
+      width: calc(100% - 57px);
+      height: 36px;
+      margin: 13px 0 0 -5px;
+      padding-left: 10px; 
+      border-radius: 0 5px 5px 0;
+      border: solid 1px #cbc9c9; 
+      box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
+      background: #fff; 
+      }
+      input[type=password] {
+      margin-bottom: 15px;
+      }
+      #icon {
+      display: inline-block;
+      padding: 9.3px 15px;
+      box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
+      background: #1c87c9;
+      color: #fff;
+      text-align: center;
+      }
+      .btn-block {
+      margin-top: 10px;
+      text-align: center;
+      }
+      button {
+      width: 100%;
+      padding: 10px 0;
+      margin: 10px auto;
+      border-radius: 5px; 
+      border: none;
+      background: #1c87c9; 
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      }
+      button:hover {
+      background: #26a9e0;
+      }
+      body{
+        background-image: url(https://rcmm.ru/uploads/posts/2020-02/1582305683_regnum_picture_147040197331642_normal.jpg);
+        background-color: #6DB3F2;
+      }
+    </style>
+  </head>
+
+  <!-- <body style='url("t.jpg")';> -->
+  
+  <div class="login">
+    
+    <h1<b><font size="7" color="D3422D">прогноз стоимости оборудования</font></b></h1>
+      <form action="{{ url_for('predict')}}"method="post">
+      <input type="text" name="Масса Нетто" placeholder="Масса Нетто" required="required" />
+      <input type="text" name="Срок службы по ГОСТ 27.002-2015" placeholder="Срок службы по ГОСТ 27.002-2015" required="required" />
+      <input type="text" name="Класс безопасности" placeholder="Класс безопасности" required="required" />
+      <input type="text" name="Категория сейсмостойкости" placeholder="Категория сейсмостойкости" required="required" />
+      <input type="text" name="Климатическое исполнение по ГОСТ 15150-69" placeholder="Климатическое исполнение по ГОСТ 15150-69" required="required" />
+      <input type="text" name="Категория размещения по ГОСТ 15150-69" placeholder="Категория размещения по ГОСТ 15150-69" required="required" />
+      <input type="text" name="Тип атмосферы на объекте применения по ГОСТ 15150-69" placeholder="Тип атмосферы на объекте применения по ГОСТ 15150-69" required="required" />
+      <input type="text" name="Максимальная габаритная длина" placeholder="Максимальная габаритная длина" required="required" />
+      <input type="text" name="Максимальная габаритная ширина" placeholder="Максимальная габаритная ширина" required="required" />
+      <input type="text" name="Максимальная габаритная высота" placeholder="Максимальная габаритная высота" required="required" />
+      <input type="text" name="Номинальная мощность" placeholder="Номинальная мощность" required="required" />
+      <input type="text" name="Номинальное напряжение" placeholder="Номинальное напряжение" required="required" />
+      <input type="text" name="Номинальная частота вращения" placeholder="Номинальная частота вращения" required="required" />
+      <input type="text" name="Высота оси вращения" placeholder="Высота оси вращения" required="required" />
+      <input type="text" name="Номинальная частота" placeholder="Номинальная частота" required="required" />
+      <input type="text" name="Число фаз" placeholder="Число фаз" required="required" />
+      <input type="text" name="Номинальный ток" placeholder="Номинальный ток" required="required" />
+      <input type="text" name="Количество отверстий" placeholder="Количество отверстий" required="required" />
+      <input type="text" name="Расстояние между центрами отверстий на лапах" placeholder="Расстояние между центрами отверстий на лапах" required="required" />
+      <input type="text" name="Диаметр вала" placeholder="Диаметр вала" required="required" />
+      <input type="text" name="Соединение фаз обмоток статора" placeholder="Соединение фаз обмоток статора" required="required" />
+      <input type="text" name="Максимальная частота вращения" placeholder="Максимальная частота вращения" required="required" />
+      <input type="text" name="Кратность начального пускового тока" placeholder="Кратность начального пускового тока" required="required" />
+      <input type="text" name="Кратность начального пускового момента" placeholder="Кратность начального пускового момента" required="required" />
+      <input type="text" name="Полное сопротивление" placeholder="Полное сопротивление" required="required" />
+      <input type="text" name="Режим работы" placeholder="Режим работы" required="required" />
+      <input type="text" name="Система охлаждения по ГОСТ 20459-87" placeholder="Система охлаждения по ГОСТ 20459-87" required="required" />
+      <input type="text" name="КПД" placeholder="КПД" required="required" />
+      <input type="text" name="Коэффициент мощности" placeholder="Коэффициент мощности" required="required" />
+      <input type="text" name="Степень защиты электродвигателя по ГОСТ 14254-2015" placeholder="Степень защиты электродвигателя по ГОСТ 14254-2015" required="required" />
+      <input type="text" name="Вероятность безотказной работы по ГОСТ 27.002-2015" placeholder="Вероятность безотказной работы по ГОСТ 27.002-2015" required="required" />
+      <input type="text" name="Условия транспортирования по ГОСТ 15150-69" placeholder="Условия транспортирования по ГОСТ 15150-69" required="required" />
+      <input type="text" name="Срок сохраняемости" placeholder="Срок сохраняемости" required="required" />
+      <input type="text" name="Наличие сертификата системы обязательной сертификации ОИТ" placeholder="Наличие сертификата системы обязательной сертификации ОИТ" required="required" />
+
+      <button type="submit" class="btn btn-primary btn-block btn-large">Запустить</button>
+      </form>
+    
+    <br>
+    <br>
+    
+    <b><font size="6" color="D3422D">{{prediction_text }}</font></b>
+
+    <br>
+    <br>
+
+  </div>
+
+  </body>
+</html>
+
+
